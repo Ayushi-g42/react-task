@@ -1,15 +1,21 @@
 import React from "react";
 import { Container } from "./style";
 
-export const RocketCard = () => {
+export const RocketCard = (props) => {
+  const { rocketItems } = props;
+  console.log("rocketItems--", rocketItems);
   return (
     <Container>
-      <p>Falcon 9</p>
+      <p>{rocketItems.rocket_name}</p>
       <div className="img-container">
-        <img src="https://farm4.staticflickr.com/3955/32915197674_eee74d81bb_b.jpg" />
-        <div className="status-card">
+        <img src={rocketItems.flickr_images[1]} />
+        <div
+          className={`status-card ${rocketItems.active == false && "active"}`}
+        >
           <p className="text">STATUS</p>
-          <h3 className="title">Active</h3>
+          <h3 className="title">
+            {rocketItems.active == true ? "Active" : "In development"}
+          </h3>
         </div>
       </div>
     </Container>

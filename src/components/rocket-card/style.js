@@ -5,6 +5,7 @@ export const Container = styled.div`
   margin: 1rem;
   place-content: normal;
   align-items: normal;
+  cursor: pointer;
 
   .img-container {
     width: 230px;
@@ -15,8 +16,10 @@ export const Container = styled.div`
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.2s ease 0s;
       border-radius: 10px;
+      &:hover {
+        transition: transform 0.2s ease 0s;
+      }
     }
 
     .status-card {
@@ -48,6 +51,10 @@ export const Container = styled.div`
         text-overflow: ellipsis;
         font-size: 1.1rem;
       }
+    }
+
+    .active {
+      background-color: rgba(255, 179, 3, 0.4);
     }
   }
 `;

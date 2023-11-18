@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const Container = styled.div`
   width: 100%;
   display: flex;
-  height: 100%;
+  height: 90vh;
   /* flex-wrap: wrap; */
 
   .main-section {
@@ -11,7 +11,8 @@ export const Container = styled.div`
     background-image: url("https://live.staticflickr.com/7706/26751237322_5a52540ea3_h.jpg");
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    padding: 0px 50px 120px;
+    padding: 0px 90px 50px;
+    overflow-y: scroll;
 
     .card-wrap {
       color: rgb(255, 255, 255);
