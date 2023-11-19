@@ -27,8 +27,8 @@ export const LaunchCard = ({ data, title }) => {
           <div className="wrap-text">
             <p className="text">LINKS</p>
             <div className="logo-links-wrap">
-              <img src="/images/youtube.png" className="logo-links" />
-              <img src="/images/twitter.png" className="logo-links" />
+              <img src="/images/youtube.png" className="logo-links" alt="socal-img" />
+              <img src="/images/twitter.png" className="logo-links" alt="socal-img" />
             </div>
           </div>
         </div>

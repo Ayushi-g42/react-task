@@ -20,7 +20,7 @@ export const Rockets = () => {
 
   useEffect(() => {
     getRocketData();
-  }, []);
+  });
 
   const getRocketItemDetail = async (rocketId) => {
     try {

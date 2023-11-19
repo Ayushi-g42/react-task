@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "./style";
 
 export const RocketCard = (props) => {
-  const { rocketItems, onClick = () => {} } = props;
+  const { rocketItems, onClick = () => { } } = props;
 
   return (
     <Container

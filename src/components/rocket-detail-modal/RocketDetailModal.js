@@ -18,9 +18,8 @@ export const RocketDetailModal = () => {
           return (
             <h3
               key={index}
-              className={`heading ${
-                activeTab == index ? "active" : "in-active"
-              }`}
+              className={`heading ${activeTab === index ? "active" : "in-active"
+                }`}
               onClick={() => {
                 setActiveTab(index);
               }}
@@ -31,8 +30,8 @@ export const RocketDetailModal = () => {
         })}
       </div>
 
-      {activeTab == 0 && <RocketDetail showRocketDetail={showRocketDetail} />}
-      {activeTab == 1 && <RocketImages showRocketDetail={showRocketDetail} />}
+      {activeTab === 0 && <RocketDetail showRocketDetail={showRocketDetail} />}
+      {activeTab === 1 && <RocketImages showRocketDetail={showRocketDetail} />}
     </Container>
   );
 };

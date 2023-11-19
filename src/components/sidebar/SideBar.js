@@ -20,7 +20,7 @@ export const SideBar = () => {
             <li key={index}>
               <Link
                 to={menu.path}
-                className={`${location.pathname == menu.path && "active"}`}
+                className={`${location.pathname === menu.path && "active"}`}
               >
                 {menu.name}
               </Link>
