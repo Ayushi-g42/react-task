@@ -18,11 +18,11 @@ export const Dashboard = () => {
   const dispatch = useDispatch();
   const upcomingLaunchData = useSelector(selectUpComingLaunchData)[0];
   const previousLaunchData = useSelector(selectPreviousLaunchData)[0];
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // getUpComingLaunchData();
-    // getPreviousLaunchData();
+    getUpComingLaunchData();
+    getPreviousLaunchData();
   }, []);
 
   const getUpComingLaunchData = async () => {
