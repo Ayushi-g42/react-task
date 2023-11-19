@@ -12,15 +12,21 @@ export const Container = styled.div`
     height: 355px;
     position: relative;
 
+    &:hover img {
+      transform: scale(1.03);
+    }
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 10px;
-      /* transition: transform 0.2s ease 0s;s */
-      &:hover {
-        transition: transform 0.2s ease 0s;
-      }
+      /* transition: transform 0.2s ease 0s; */
+      transform: 0.5s all ease-in-out;
+
+      /* &:hover {
+        transition: scale(1.5);
+      } */
     }
 
     .status-card {

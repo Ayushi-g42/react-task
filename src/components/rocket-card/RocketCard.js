@@ -12,7 +12,7 @@ export const RocketCard = (props) => {
     >
       <p>{rocketItems.rocket_name}</p>
       <div className="img-container">
-        <img src={rocketItems.flickr_images[1]} />
+        <img src={rocketItems.flickr_images[1]} alt="rocket-img" />
         <div
           className={`status-card ${rocketItems.active == false && "active"}`}
         >
