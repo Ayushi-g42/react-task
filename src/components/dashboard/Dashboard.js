@@ -23,7 +23,7 @@ export const Dashboard = () => {
   useEffect(() => {
     getUpComingLaunchData();
     getPreviousLaunchData();
-  });
+  },[]);
 
   const getUpComingLaunchData = async () => {
     try {
