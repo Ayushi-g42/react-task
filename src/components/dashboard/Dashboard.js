@@ -23,6 +23,7 @@ export const Dashboard = () => {
   useEffect(() => {
     getUpComingLaunchData();
     getPreviousLaunchData();
+    /* eslint-disable */
   },[]);
 
   const getUpComingLaunchData = async () => {
