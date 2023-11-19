@@ -30,13 +30,14 @@ export const Sidebar = styled.div`
       }
 
       .active {
-        font-weight: 500;
+        font-weight: 600;
         color: rgb(53, 53, 53);
         transition: all 0.2s ease-out 0s;
         text-decoration: none;
         padding: 0.5rem 1rem;
         border-radius: 10px;
         font-size: 1.6rem;
+        font-family: HelveticaNeue, sans-serif;
 
         &:hover {
           background: rgb(245, 245, 245);

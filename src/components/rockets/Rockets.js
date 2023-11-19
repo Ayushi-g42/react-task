@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "./style";
 import { SideBar } from "../sidebar/SideBar";
 import { RocketCard } from "../rocket-card/RocketCard";
@@ -15,6 +15,7 @@ import { RocketDetailModal } from "../rocket-detail-modal/RocketDetailModal";
 export const Rockets = () => {
   const rocketData = useSelector(selectRocketData);
   const showRocketDetail = useSelector(selectShowRocketDetail);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,6 +24,7 @@ export const Rockets = () => {
 
   const getRocketItemDetail = async (rocketId) => {
     try {
+      setLoading(true);
       const response = await fetch(
         `https://api.spacexdata.com/v3/rockets/${rocketId}`,
         {
@@ -30,39 +32,52 @@ export const Rockets = () => {
         }
       );
       const result = await response.json();
-      dispatch(setShowRocketDetail(result));
+      if (result) {
+        setLoading(false);
+        dispatch(setShowRocketDetail(result));
+      }
     } catch (error) {
+      setLoading(false);
       console.error("Error:", error);
     }
   };
 
   const getRocketData = async () => {
     try {
+      setLoading(true);
       const response = await fetch("https://api.spacexdata.com/v3/rockets", {
         method: "GET",
       });
       const result = await response.json();
-      dispatch(setRocketData(result));
+      if (result) {
+        setLoading(false);
+        dispatch(setRocketData(result));
+      }
     } catch (error) {
+      setLoading(false);
       console.error("Error:", error);
     }
   };
   return (
     <Container>
       <SideBar />
-      <div className="main-section" hidescrollbar>
-        <div className="card-wrap">
-          {rocketData?.map((rocketItems, index) => {
-            return (
-              <RocketCard
-                key={index}
-                rocketItems={rocketItems}
-                onClick={(rocketId) => getRocketItemDetail(rocketId)}
-              />
-            );
-          })}
+      {loading ? (
+        "Loading..."
+      ) : (
+        <div className="main-section" hidescrollbar>
+          <div className="card-wrap">
+            {rocketData?.map((rocketItems, index) => {
+              return (
+                <RocketCard
+                  key={index}
+                  rocketItems={rocketItems}
+                  onClick={(rocketId) => getRocketItemDetail(rocketId)}
+                />
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
       {showRocketDetail && (
         <Modal

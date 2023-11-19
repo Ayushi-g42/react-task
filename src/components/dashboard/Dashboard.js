@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "./style";
 import { SideBar } from "../sidebar/SideBar";
 import { LaunchCard } from "../launch-card/LaunchCard";
@@ -18,14 +18,16 @@ export const Dashboard = () => {
   const dispatch = useDispatch();
   const upcomingLaunchData = useSelector(selectUpComingLaunchData)[0];
   const previousLaunchData = useSelector(selectPreviousLaunchData)[0];
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getUpComingLaunchData();
-    getPreviousLaunchData();
+    // getUpComingLaunchData();
+    // getPreviousLaunchData();
   }, []);
 
   const getUpComingLaunchData = async () => {
     try {
+      setLoading(true);
       const response = await fetch(
         `https://api.spacexdata.com/v3/launches/upcoming`,
         {
@@ -33,14 +35,19 @@ export const Dashboard = () => {
         }
       );
       const result = await response.json();
-      dispatch(setUpComingLaunchData(result));
+      if (result) {
+        setLoading(false);
+        dispatch(setUpComingLaunchData(result));
+      }
     } catch (error) {
+      setLoading(false);
       console.error("Error:", error);
     }
   };
 
   const getPreviousLaunchData = async () => {
     try {
+      setLoading(true);
       const response = await fetch(
         `https://api.spacexdata.com/v3/launches/past`,
         {
@@ -48,8 +55,12 @@ export const Dashboard = () => {
         }
       );
       const result = await response.json();
-      dispatch(setPreviousLaunchData(result));
+      if (result) {
+        setLoading(false);
+        dispatch(setPreviousLaunchData(result));
+      }
     } catch (error) {
+      setLoading(true);
       console.error("Error:", error);
     }
   };
@@ -57,12 +68,16 @@ export const Dashboard = () => {
   return (
     <Container>
       <SideBar />
-      <div className="main-section">
-        <LaunchCard data={upcomingLaunchData} title="Upcoming launch" />
-        <LaunchFacilityCard />
-        <LaunchCard data={previousLaunchData} title="Previous launch" />
-        <StarLinkCard />
-      </div>
+      {loading ? (
+        <div className="bg-image img-wrap">Loading...</div>
+      ) : (
+        <div className="main-section bg-image">
+          <LaunchCard data={upcomingLaunchData} title="Upcoming launch" />
+          <LaunchFacilityCard />
+          <LaunchCard data={previousLaunchData} title="Previous launch" />
+          <StarLinkCard />
+        </div>
+      )}
     </Container>
   );
 };
