@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import { Container } from "./style";
 import { RocketDetail } from "../rocket-detail/RocketDetail";
 import { RocketImages } from "../rocket-images/RocketImages";
+import { useSelector } from "react-redux";
+import { selectShowRocketDetail } from "../../store/rocket/selector";
 
-export const RocketDetailModal = ({ showRocketDetail }) => {
+export const RocketDetailModal = () => {
   const [activeTab, setActiveTab] = useState(0);
-  const menu = [
-    {
-      name: "Overview",
-    },
-    { name: "Photos" },
-  ];
+  const showRocketDetail = useSelector(selectShowRocketDetail);
+  const menu = ["Overview", "Photos"];
 
   return (
     <Container>
@@ -27,7 +25,7 @@ export const RocketDetailModal = ({ showRocketDetail }) => {
                 setActiveTab(index);
               }}
             >
-              {item.name}
+              {item}
             </h3>
           );
         })}

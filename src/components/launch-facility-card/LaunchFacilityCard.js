@@ -1,10 +1,7 @@
 import React from "react";
 import { Container } from "./style";
-import { useSelector } from "react-redux";
-import { selectUpComingLaunchData } from "../../store/rocket/selector";
 
 export const LaunchFacilityCard = () => {
-  // if (!data) return null;
   return (
     <Container>
       <h3>Launch facilities</h3>

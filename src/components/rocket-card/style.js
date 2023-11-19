@@ -17,6 +17,7 @@ export const Container = styled.div`
       height: 100%;
       object-fit: cover;
       border-radius: 10px;
+      /* transition: transform 0.2s ease 0s;s */
       &:hover {
         transition: transform 0.2s ease 0s;
       }

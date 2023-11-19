@@ -14,10 +14,6 @@ function App() {
       path: "/rocket",
       element: <Rockets />,
     },
-    // {
-    //   path: "/user/:id",
-    //   element: <UserListDetail />,
-    // },
   ]);
 
   return (

@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Container } from "./style";
 import { SideBar } from "../sidebar/SideBar";
 import { RocketCard } from "../rocket-card/RocketCard";
-import { selectRocketData } from "../../store/rocket/selector";
+import {
+  selectRocketData,
+  selectShowRocketDetail,
+} from "../../store/rocket/selector";
 import { useSelector, useDispatch } from "react-redux";
-import { setRocketData } from "../../store/rocket/slice";
+import { setRocketData, setShowRocketDetail } from "../../store/rocket/slice";
 import "../../App.css";
 import { Modal } from "../modal/Modal";
 import { RocketDetailModal } from "../rocket-detail-modal/RocketDetailModal";
 
 export const Rockets = () => {
-  // const [showModal, setShowModal] = useState(false);
   const rocketData = useSelector(selectRocketData);
-  const [showRocketDetail, setShowRocketDetail] = useState(null);
-
+  const showRocketDetail = useSelector(selectShowRocketDetail);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export const Rockets = () => {
         }
       );
       const result = await response.json();
-      setShowRocketDetail(result);
+      dispatch(setShowRocketDetail(result));
     } catch (error) {
       console.error("Error:", error);
     }
@@ -66,10 +67,10 @@ export const Rockets = () => {
       {showRocketDetail && (
         <Modal
           onClose={() => {
-            setShowRocketDetail(null);
+            dispatch(setShowRocketDetail(null));
           }}
         >
-          <RocketDetailModal showRocketDetail={showRocketDetail} />
+          <RocketDetailModal />
         </Modal>
       )}
     </Container>

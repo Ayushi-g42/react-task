@@ -4,6 +4,7 @@ const initialState = {
   rocketData: [],
   upComingLanuchData: [],
   previousLanuchData: [],
+  showRocketDetail: null,
 };
 
 export const rocketSlice = createSlice({
@@ -19,10 +20,17 @@ export const rocketSlice = createSlice({
     setPreviousLaunchData: (state, action) => {
       state.previousLanuchData = action.payload;
     },
+    setShowRocketDetail: (state, action) => {
+      state.showRocketDetail = action.payload;
+    },
   },
 });
 
-export const { setRocketData, setUpComingLaunchData, setPreviousLaunchData } =
-  rocketSlice.actions;
+export const {
+  setRocketData,
+  setUpComingLaunchData,
+  setPreviousLaunchData,
+  setShowRocketDetail,
+} = rocketSlice.actions;
 
 export default rocketSlice.reducer;

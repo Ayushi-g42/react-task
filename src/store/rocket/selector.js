@@ -5,3 +5,5 @@ export const selectUpComingLaunchData = (state) =>
 
 export const selectPreviousLaunchData = (state) =>
   state.rocket.previousLanuchData;
+
+export const selectShowRocketDetail = (state) => state.rocket.showRocketDetail;

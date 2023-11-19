@@ -1,7 +1,5 @@
 import React from "react";
 import { Container } from "./style";
-import { useSelector } from "react-redux";
-import { selectUpComingLaunchData } from "../../store/rocket/selector";
 import { RocketImage } from "../../icons/rocket-img";
 
 export const StarLinkCard = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Container } from "./style";
 import { SideBar } from "../sidebar/SideBar";
 import { LaunchCard } from "../launch-card/LaunchCard";
@@ -24,7 +24,7 @@ export const Dashboard = () => {
     getPreviousLaunchData();
   }, []);
 
-  const getUpComingLaunchData = async (rocketId) => {
+  const getUpComingLaunchData = async () => {
     try {
       const response = await fetch(
         `https://api.spacexdata.com/v3/launches/upcoming`,
@@ -39,7 +39,7 @@ export const Dashboard = () => {
     }
   };
 
-  const getPreviousLaunchData = async (rocketId) => {
+  const getPreviousLaunchData = async () => {
     try {
       const response = await fetch(
         `https://api.spacexdata.com/v3/launches/past`,

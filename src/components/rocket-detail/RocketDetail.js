@@ -5,7 +5,7 @@ export const RocketDetail = ({ showRocketDetail }) => {
   return (
     <Container>
       <div className="rocket-image">
-        <img src={showRocketDetail.flickr_images[1]} />
+        <img src={showRocketDetail.flickr_images[1]} alt="img" />
       </div>
       <div className="rocket-detail">
         <p className="text">Description</p>
