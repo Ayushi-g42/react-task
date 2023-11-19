@@ -14,11 +14,11 @@ export const RocketCard = (props) => {
       <div className="img-container">
         <img src={rocketItems.flickr_images[1]} alt="rocket-img" />
         <div
-          className={`status-card ${rocketItems.active == false && "active"}`}
+          className={`status-card ${rocketItems.active === false && "active"}`}
         >
           <p className="text">STATUS</p>
           <h3 className="title">
-            {rocketItems.active == true ? "Active" : "In development"}
+            {rocketItems.active === true ? "Active" : "In development"}
           </h3>
         </div>
       </div>
