@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   rocketData: [],
+  upComingLanuchData: [],
+  previousLanuchData: [],
 };
 
 export const rocketSlice = createSlice({
@@ -11,9 +13,16 @@ export const rocketSlice = createSlice({
     setRocketData: (state, action) => {
       state.rocketData = action.payload;
     },
+    setUpComingLaunchData: (state, action) => {
+      state.upComingLanuchData = action.payload;
+    },
+    setPreviousLaunchData: (state, action) => {
+      state.previousLanuchData = action.payload;
+    },
   },
 });
 
-export const { setRocketData } = rocketSlice.actions;
+export const { setRocketData, setUpComingLaunchData, setPreviousLaunchData } =
+  rocketSlice.actions;
 
 export default rocketSlice.reducer;

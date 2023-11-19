@@ -1,41 +1,49 @@
 import React from "react";
 import { Container } from "./style";
+import { useSelector } from "react-redux";
+import { selectUpComingLaunchData } from "../../store/rocket/selector";
 
-export const LaunchCard = () => {
+export const LaunchCard = ({ data, title }) => {
+  if (!data) return null;
   return (
     <Container>
-      <h3>Upcoming launch</h3>
+      <h3>{title}</h3>
       <div className="wrap-inner-box">
         <div className="left">
           <div className="wrap-text">
             <p className="text">MISSION NAME</p>
-            <h3 className="title">USSF-44</h3>
+            <h3 className="title">{data?.mission_name}</h3>
           </div>
           <div className="wrap-text">
             <p className="text">ROCKET</p>
-            <h3 className="title">Falcon Heavy</h3>
+            <h3 className="title">{data.rocket.rocket_name}</h3>
           </div>
           <div className="wrap-text">
             <p className="text">FLIGHT NUMBER</p>
-            <h3 className="title">188</h3>
+            <h3 className="title">{data.flight_number}</h3>
           </div>
           <div className="wrap-text">
             <p className="text">TIME (UTC)</p>
-            <h3 className="title">Nov 01, 01:41PM</h3>
+            <h3 className="title">{data.launch_date_utc}</h3>
           </div>
           <div className="wrap-text">
             <p className="text">LINKS</p>
-            <h3 className="title">Nov 01, 01:41PM</h3>
+            <div className="logo-links-wrap">
+              <img src="/images/youtube.png" className="logo-links" />
+              <img src="/images/twitter.png" className="logo-links" />
+            </div>
           </div>
         </div>
         <div className="right">
           <div className="wrap-text">
-            <p className="text">TIME (UTC)</p>
-            <h3 className="title">Nov 01, 01:41PM</h3>
+            <p className="text">ROCKET LOGO</p>
+            <div className="logo-wrap">
+              <img src={data.links.mission_patch_small} alt="logo" />
+            </div>
           </div>
           <div className="wrap-text">
-            <p className="text">LINKS</p>
-            <h3 className="title">Nov 01, 01:41PM</h3>
+            <p className="text">LAUNCHPAD</p>
+            <h3 className="title">{data.launch_date_unix}</h3>
           </div>
         </div>
       </div>
