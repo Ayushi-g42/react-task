@@ -20,6 +20,7 @@ export const Rockets = () => {
 
   useEffect(() => {
     getRocketData();
+    /* eslint-disable */
   },[]);
 
   const getRocketItemDetail = async (rocketId) => {
