@@ -5,7 +5,10 @@ export const Container = styled.div`
   border-radius: 15px;
   background: rgba(0, 0, 0, 0.5);
   padding: 1rem 1.75rem 2.3em;
-  width: 380px;
+   width: 42%;
+  @media (max-width: 1199px) {
+    width: 40%;
+  }
 
   .wrap-inner-box {
     background-image: url("https://live.staticflickr.com/65535/50137510881_3f675bb620_h.jpg");
