@@ -5,12 +5,16 @@ export const Container = styled.div`
   border-radius: 15px;
   background: rgba(0, 0, 0, 0.5);
   padding: 1rem 1.75rem 2.3em;
-  width: 380px;
+  width: 42%;
+  @media (max-width: 1199px) {
+    width: 40%;
+  }
 
   .wrap-inner-box {
     display: flex;
     width: 100%;
     gap: 20px;
+    justify-content: space-between;
 
     .left,
     .right {
@@ -21,7 +25,7 @@ export const Container = styled.div`
       margin: 10px 0px;
 
       .logo-wrap {
-        width: 120px;
+        // width: 120px;
         /* height: 130px; */
         border-radius: 10px;
         background-color: rgba(51, 51, 51, 0.5);
