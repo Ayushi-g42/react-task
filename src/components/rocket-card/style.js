@@ -6,9 +6,10 @@ export const Container = styled.div`
   place-content: normal;
   align-items: normal;
   cursor: pointer;
+    width: 240px;
 
   .img-container {
-    width: 230px;
+      width: 100%;
     height: 355px;
     position: relative;
 
