@@ -63,9 +63,9 @@ export const Rockets = () => {
     <Container>
       <SideBar />
       {loading ? (
-        "Loading..."
+        <div className="bg-image img-wrap">Loading...</div>
       ) : (
-        <div className="main-section" hidescrollbar>
+        <div className="main-section  bg-image" hidescrollbar>
           <div className="card-wrap">
             {rocketData?.map((rocketItems, index) => {
               return (
